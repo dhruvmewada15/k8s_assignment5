@@ -10,7 +10,10 @@ spec:
     spec:
       containers:
         - name: worker
-          image: dhruvmewada15/multi-docker_worker        
+          image: dhruvmewada15/multi-docker_worker
+          envFrom:
+            - configMapRef:
+                name: worker-configmap
   replicas: 1
   selector:
     matchLabels:

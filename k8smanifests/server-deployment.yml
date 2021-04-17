@@ -14,6 +14,9 @@ spec:
           image: dhruvmewada15/multi-docker_api
           ports:
             - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: server-configmap
   selector:
     matchLabels:
       name: server-pod
