@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: server-pod
+    spec:     
+      containers:
+        - name: server
+          image: dhruvmewada15/multi-docker_api
+          ports:
+            - containerPort: 5000
+  selector:
+    matchLabels:
+      name: server-pod

@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-deployment
+spec:
+  template:  
+    metadata:
+      labels:
+        name: worker-pod
+    spec:
+      containers:
+        - name: worker
+          image: dhruvmewada15/multi-docker_worker        
+  replicas: 1
+  selector:
+    matchLabels:
+      name: worker-pod
+
