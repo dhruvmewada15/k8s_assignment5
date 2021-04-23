@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: internal-policy
+  namespace: default
+spec:
+  podSelector:    
+    matchExpressions:
+      - {key: name, operator: In, values: [postgres-pod, redis-pod]}   
+  policyTypes:
+  - Ingress  
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          name: client-pod
+    ports:
+    - protocol: TCP
+      port: 3000
+
+  - from:
+    - podSelector:
+        matchLabels:
+          name: server-pod
+    ports:
+    - protocol: TCP
+      port: 5000  
+  
+  - from:
+    - podSelector:
+        matchLabels:
+          name: worker-pod
+    
