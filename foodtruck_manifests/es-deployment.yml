@@ -16,6 +16,6 @@ spec:
             - configMapRef:
                 name: es-configmap
   replicas: 1
-  selectors:
+  selector:
     matchLabel:
       name: es-pod
