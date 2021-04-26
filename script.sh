@@ -7,6 +7,7 @@ sudo apt-get update && apt-get upgrade -y
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl ca-certificates 
 
 sudo swapoff -a
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 br_netfilter
