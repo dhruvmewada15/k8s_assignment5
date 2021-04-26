@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+spec:
+  template:
+    metadata:
+      labels:
+        name: web-pod
+    spec:
+      containers:
+        - name: web
+          image: prakhar1989/foodtrucks-web
+          ports: 
+            - containerPort: 5000
+  replicas: 1
+  selector:
+    matchLabels:
+      name: web-pod

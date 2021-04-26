@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+spec:
+  template:
+    metadata:
+      labels:
+        name: es-pod
+    spec:
+      containers:
+        - name: es
+          image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+          ports:
+            - containerPort: 9200
+          envFrom:
+            - configMapRef:
+                name: es-configmap
+  replicas: 1
+  selectors:
+    matchLabel:
+      name: es-pod
