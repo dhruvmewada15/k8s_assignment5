@@ -12,9 +12,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: web
+                name: client-service
                 port:
-                  number: 5000
+                  number: 3000
           - path: /foodtruck
             pathType: Prefix
             backend:
