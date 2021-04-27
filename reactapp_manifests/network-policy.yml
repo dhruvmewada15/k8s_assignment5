@@ -1,8 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: internal-nw-policy
-  namespace: default
+  name: internal-nw-policy  
 spec:
   podSelector:    
     matchExpressions:
