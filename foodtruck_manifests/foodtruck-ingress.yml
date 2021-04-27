@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: ingress-resource
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /usr/share/nginx/html/index.html
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
     - http:
