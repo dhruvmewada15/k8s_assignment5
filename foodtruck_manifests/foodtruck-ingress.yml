@@ -22,20 +22,14 @@ spec:
                 name: web
                 port:
                   number: 5000
-          - path: /app1
+          - path: /reactapp
             pathType: Prefix
             backend:
               service:
                 name: client-service
                 port:
                   number: 3000
-          - path: /app2
-            pathType: Prefix
-            backend:
-              service:
-                name: client-service
-                port:
-                  number: 3000
+
           
 
       
