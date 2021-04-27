@@ -1,12 +1,10 @@
 ### Kubernetes Assignment
-This repo is the solution of the assignment.
 
 ##### VM Setup:
 * Use Vagrant to setup 3 Ubuntu VMs to run the virtual machines cluster. In case of resource crunch on your
 machine, you can do 1 master and 1 worker.
 
 1. Use the Vagrantfile to provision 1 master and 2 worker nodes. It will run <b>script.sh</b> to install all dependancies/packages required for K8s cluster setup.
-2. ```vagrant up```
 
 > Ensure swap is disabled.<br>
 > Ensure you can run docker as a not-root user.<br>
@@ -62,20 +60,31 @@ machine, you can do 1 master and 1 worker.
 
 1. Create a bash script to take the backup of ETCD database and run it to take a snapshot
 
-``` Refer to etcd-backup.sh```   
-
+``` Install etcdctl client : sudo apt install etcd-client
+    
+    Refer to etcd-backup.sh   
+```
+    
 2. Install CNI
 
 ```kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"```
 
+
 3. Convert https://github.com/StephenGrider/multi-docker (docker compose) app to Kubernetes app in a
-namespace training. Refer to reactapp directory.
+namespace training. 
+Refer to reactapp_manifests directory.
 
 ```     
     kubectl create namespace training
     kubectl apply -f .
 ```    
-    
+Use foodtruck namespace for foodtruck_manifests directory
+
+```
+    kubectl create namespace foodtruck
+    kubectl apply -f .
+```
+
 4. Restrict the number of pods in training namespace to 5. Observe the error by scaling the worker
 deployment to 4.
 
@@ -84,6 +93,7 @@ deployment to 4.
 When trying to scale up worker pods, it does not scale up and only 1 pod keeps running.
 
 ```
+
 5. Install nginx ingress controller.
 
 ``` Refer to https://medium.com/digitalfrontiers/kubernetes-ingress-with-nginx-93bdc1ce5fa9#:~:text=The%20Ingress%20Controller%20is%20responsible,services%20within%20the%20Kubernetes%20cluster.&text=Thus%20an%20Ingress%20Controller%20can,for%20any%20new%20Ingress%20resources.
