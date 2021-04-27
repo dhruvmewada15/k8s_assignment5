@@ -12,22 +12,16 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: client-service
+                name: web
                 port:
-                  number: 3000
-          - path: /app1
+                  number: 5000
+          - path: /foodtruck
             pathType: Prefix
             backend:
               service:
-                name: client-service
+                name: web
                 port:
-                  number: 3000
-          - path: /app2
-            pathType: Prefix
-            backend:
-              service:
-                name: client-np-service
-                port:
-                  number: 3000
+                  number: 5000
+          
 
       
