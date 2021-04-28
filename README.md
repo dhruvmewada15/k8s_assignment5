@@ -44,6 +44,7 @@ machine, you can do 1 master and 1 worker.
     ...
    
   Delete the current kube-proxy pods and check the logs of newly created pods. You should be able to see "Using ipvs Proxier"
+  Refer to https://stackoverflow.com/questions/56493651/enable-ipvs-mode-in-kube-proxy-on-a-ready-kubernetes-local-cluster
 ```
 
 4. Ensure audit logging is enabled for API server.
