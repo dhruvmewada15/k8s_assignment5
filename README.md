@@ -16,8 +16,7 @@ machine, you can do 1 master and 1 worker.
 1. Initialize k8s cluster using kubeadm init
 
 ```
-    sudo kubeadm init --apiserver-advertise-address=<master_private_ip> --pod-network-cidr=10.244.0.0/16
-        
+    sudo kubeadm init --apiserver-advertise-address=<master_private_ip> --pod-network-cidr=10.244.0.0/16        
 ```
 > Edit the etc/systemd/system/kubelet.service.d/10-kubeadm.conf to add --node-ip.
 --node-ip = IP address of the node. If set, kubelet will use this IP address for the node.
@@ -126,9 +125,9 @@ deployment to 4.
 and postgresql. All direct connection should be prohibited.
 
 ``` 
-    Refer to file network-policy.yml
+  Refer to file network-policy.yml
 
-    Once policy is created, use describe command to check if the network conditions are applied.
+  Once policy is created, use describe command to check if the network conditions are applied.
 ```
 
 7. Install metrics-server and observe the resource consumption of the workload under training namespace.
