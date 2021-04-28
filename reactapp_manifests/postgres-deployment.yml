@@ -17,10 +17,10 @@ spec:
             - configMapRef:
                 name: postgres-configmap
           resources:
-            limits: 
+            requests: 
               cpu: "20m"
               memory: "256Mi"
-            requests:
+            limits:
               cpu: "100m"
               memory: "512Mi"
   replicas: 1

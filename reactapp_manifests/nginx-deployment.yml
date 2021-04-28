@@ -14,10 +14,10 @@ spec:
           ports:
             - containerPort: 80
           resources:
-            limits: 
+            requests: 
               cpu: "50m"
               memory: "20Mi"
-            requests:
+            limits:
               cpu: "200m"
               memory: "128Mi"   
   replicas: 1    
