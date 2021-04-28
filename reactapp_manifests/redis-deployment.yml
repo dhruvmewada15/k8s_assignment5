@@ -15,11 +15,11 @@ spec:
             - containerPort: 6379
           resources:
             requests: 
-              cpu: "30m"
-              memory: "256Mi"
+              cpu: "20m"
+              memory: "28Mi"
             limits:
-              cpu: "150m"
-              memory: "512Mi"
+              cpu: "40m"
+              memory: "56Mi"
   replicas: 1
   selector:
     matchLabels:

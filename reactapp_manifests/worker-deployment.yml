@@ -16,11 +16,11 @@ spec:
                 name: worker-configmap
           resources:
             requests: 
+              cpu: "30m"
+              memory: "128Mi"
+            limits:
               cpu: "100m"
               memory: "256Mi"
-            limits:
-              cpu: "200m"
-              memory: "512Mi"
   replicas: 1
   selector:
     matchLabels:

@@ -19,11 +19,11 @@ spec:
                 name: server-configmap
           resources:
             requests: 
-              cpu: "100m"
-              memory: "256Mi"
+              cpu: "20m"
+              memory: "56Mi"
             limits:
-              cpu: "200m"
-              memory: "512Mi"
+              cpu: "40m"
+              memory: "128Mi"
   selector:
     matchLabels:
       name: server-pod
