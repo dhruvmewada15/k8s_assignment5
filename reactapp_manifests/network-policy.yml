@@ -12,7 +12,12 @@ spec:
   - from:
     - podSelector:
         matchLabels:
-          name: client-pod    
+          name: client-pod
+    ports:
+    - protocol: TCP
+      port: 5432
+    - protocol: TCP
+      port: 6379    
   # - from:
   #   - podSelector:
   #       matchLabels:
