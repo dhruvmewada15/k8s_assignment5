@@ -12,21 +12,18 @@ spec:
   - from:
     - podSelector:
         matchLabels:
-          name: client-pod
-    ports:
-    - protocol: TCP
-      port: 3000
-
+          name: client-pod    
   - from:
     - podSelector:
         matchLabels:
-          name: server-pod
-    ports:
-    - protocol: TCP
-      port: 5000  
-  
+          name: server-pod      
   - from:
     - podSelector:
         matchLabels:
           name: worker-pod
+    ports:
+    - protocol: TCP
+      port: 5432
+    - protocol: TCP
+      port: 6379
     
