@@ -12,7 +12,14 @@ spec:
         - name: nginx
           image: nginx
           ports:
-            - containerPort: 80   
+            - containerPort: 80
+          resource:
+            limits: 
+              cpu: "50m"
+              memory: "20Mi"
+            requests:
+              cpu: "200m"
+              memory: "128Mi"   
   replicas: 1    
   selector:
       matchLabels:

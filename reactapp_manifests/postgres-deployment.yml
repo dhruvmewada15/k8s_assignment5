@@ -16,6 +16,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: postgres-configmap
+          resource:
+            limits: 
+              cpu: "20m"
+              memory: "256Mi"
+            requests:
+              cpu: "100m"
+              memory: "512Mi"
   replicas: 1
   selector:
     matchLabels:

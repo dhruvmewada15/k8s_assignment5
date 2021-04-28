@@ -13,6 +13,13 @@ spec:
           image: redis
           ports:
             - containerPort: 6379
+          resource:
+            limits: 
+              cpu: "30m"
+              memory: "256Mi"
+            requests:
+              cpu: "150m"
+              memory: "512Mi"
   replicas: 1
   selector:
     matchLabels:

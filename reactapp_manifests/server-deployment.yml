@@ -17,6 +17,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: server-configmap
+          resource:
+            limits: 
+              cpu: "100m"
+              memory: "256Mi"
+            requests:
+              cpu: "200m"
+              memory: "512Mi"
   selector:
     matchLabels:
       name: server-pod

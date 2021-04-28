@@ -13,6 +13,13 @@ spec:
           image: dhruvmewada15/multi-docker_client
           ports:
             - containerPort: 3000
+          resource:
+            limits: 
+              cpu: "100m"
+              memory: "256Mi"
+            requests:
+              cpu: "200m"
+              memory: "512Mi"
   replicas: 1
   selector:
     matchLabels:
