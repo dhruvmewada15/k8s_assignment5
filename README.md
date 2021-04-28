@@ -99,7 +99,9 @@ deployment to 4.
 ``` 
   Refer to pod-quota.yml
 
-  When trying to scale up worker pods, it does not scale up and only 1 pod keeps running.
+  When trying to scale up worker pods, it does not scale to 4 pods, rather worker deployment gets failed as it exceeds pod-quota of 5 pods in 
+  the training namespace
+  
 ```
 
 5. Install nginx ingress controller.
