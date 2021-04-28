@@ -17,7 +17,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: server-configmap
-          resource:
+          resources:
             limits: 
               cpu: "100m"
               memory: "256Mi"

@@ -14,7 +14,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: worker-configmap
-          resource:
+          resources:
             limits: 
               cpu: "100m"
               memory: "256Mi"

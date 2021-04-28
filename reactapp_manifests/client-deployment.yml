@@ -13,7 +13,7 @@ spec:
           image: dhruvmewada15/multi-docker_client
           ports:
             - containerPort: 3000
-          resource:
+          resources:
             limits: 
               cpu: "100m"
               memory: "256Mi"
