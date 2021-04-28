@@ -43,7 +43,7 @@ machine, you can do 1 master and 1 worker.
         mode: ipvs
     ...
    
-  Delete the current kube-proxy pods. and check the logs of newly created pods. You should be able to see "Using ipvs Proxier"
+  Delete the current kube-proxy pods and check the logs of newly created pods. You should be able to see "Using ipvs Proxier"
 ```
 
 4. Ensure audit logging is enabled for API server.
@@ -58,6 +58,8 @@ machine, you can do 1 master and 1 worker.
     ...
   
   Edit the kube-apiserver to use this audit-policy file and to pass filename for saving the logs. Refer to https://medium.com/cooking-with-azure/cks-exam-prep-setting-up-audit-policy-in-kubeadm-3f1b76bf4bd7
+  
+  Verify that the logs are stored at the defined file.
   
  ```
  
