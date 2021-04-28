@@ -8,14 +8,18 @@ machine, you can do 1 master and 1 worker.
 
 > Ensure swap is disabled.<br>
 > Ensure you can run docker as a not-root user.<br>
+> Ensure connectivity between 3 machines.<br>
+> If you are using a VM, ensure host only network is properly configured.
 
 ##### Design Kubernetes Cluster:
 
 1. Initialize k8s cluster using kubeadm init
 
 ```
-    sudo kubeadm init --apiserver-advertise-address=<master_private_ip> --pod-network-cidr=10.244.0.0/16
+    sudo kubeadm init --apiserver-advertise-address=<master_private_ip> --pod-network-cidr=10.244.0.0/16        
 ```
+> Edit the etc/systemd/system/kubelet.service.d/10-kubeadm.conf to add --node-ip.
+--node-ip = IP address of the node. If set, kubelet will use this IP address for the node.
 
 2. Use the join command to connect worker nodes with the master node.
 
@@ -43,7 +47,8 @@ machine, you can do 1 master and 1 worker.
         mode: ipvs
     ...
    
-  Delete the current kube-proxy pods. and check the logs of newly created pods. You should be able to see "Using ipvs Proxier"
+  Delete the current kube-proxy pods and check the logs of newly created pods. You should be able to see "Using ipvs Proxier"
+  Refer to https://stackoverflow.com/questions/56493651/enable-ipvs-mode-in-kube-proxy-on-a-ready-kubernetes-local-cluster
 ```
 
 4. Ensure audit logging is enabled for API server.
@@ -58,6 +63,8 @@ machine, you can do 1 master and 1 worker.
     ...
   
   Edit the kube-apiserver to use this audit-policy file and to pass filename for saving the logs. Refer to https://medium.com/cooking-with-azure/cks-exam-prep-setting-up-audit-policy-in-kubeadm-3f1b76bf4bd7
+  
+  Verify that the logs are stored at the defined file.
   
  ```
  
@@ -99,7 +106,9 @@ deployment to 4.
 ``` 
   Refer to pod-quota.yml
 
-  When trying to scale up worker pods, it does not scale up and only 1 pod keeps running.
+  When trying to scale up worker pods, it does not scale to 4 pods, rather worker deployment gets failed as it exceeds pod-quota of 5 pods in 
+  the training namespace
+  
 ```
 
 5. Install nginx ingress controller.
@@ -116,9 +125,9 @@ deployment to 4.
 and postgresql. All direct connection should be prohibited.
 
 ``` 
-    Refer to file network-policy.yml
+  Refer to file network-policy.yml
 
-    Once policy is created, use describe command to check if the network conditions are applied.
+  Once policy is created, use describe command to check if the network conditions are applied.
 ```
 
 7. Install metrics-server and observe the resource consumption of the workload under training namespace.
