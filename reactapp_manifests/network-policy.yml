@@ -1,13 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: internal-nw-policy  
+  name: internal-nw-policy
 spec:
-  podSelector:    
+  podSelector:
     matchExpressions:
-      - {key: name, operator: In, values: [postgres-pod, redis-pod]}   
+      - {key: name, operator: In, values: [postgres-pod, redis-pod]}
   policyTypes:
-  - Ingress  
+  - Ingress
   ingress:
   - from:
     - podSelector:
@@ -16,9 +16,11 @@ spec:
     - podSelector:
         matchLabels:
           name: worker-pod
+    - podSelector:
+        matchLabels:
+          name: server-pod
     ports:
-    - protocol: TCP
-      port: 5432
-    - protocol: TCP
-      port: 6379
-    
+      - port: 5432
+        protocol: TCP
+      - port: 6379
+        protocol: TCP
