@@ -13,10 +13,10 @@ spec:
     - podSelector:
         matchLabels:
           name: client-pod    
-  - from:
-    - podSelector:
-        matchLabels:
-          name: server-pod      
+  # - from:
+  #   - podSelector:
+  #       matchLabels:
+  #         name: server-pod      
   - from:
     - podSelector:
         matchLabels:
