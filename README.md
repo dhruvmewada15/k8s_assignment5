@@ -8,6 +8,8 @@ machine, you can do 1 master and 1 worker.
 
 > Ensure swap is disabled.<br>
 > Ensure you can run docker as a not-root user.<br>
+> Ensure connectivity between 3 machines.<br>
+> If you are using a VM, ensure host only network is properly configured.
 
 ##### Design Kubernetes Cluster:
 
@@ -15,7 +17,10 @@ machine, you can do 1 master and 1 worker.
 
 ```
     sudo kubeadm init --apiserver-advertise-address=<master_private_ip> --pod-network-cidr=10.244.0.0/16
+        
 ```
+> Edit the etc/systemd/system/kubelet.service.d/10-kubeadm.conf to add --node-ip.
+--node-ip = IP address of the node. If set, kubelet will use this IP address for the node.
 
 2. Use the join command to connect worker nodes with the master node.
 
