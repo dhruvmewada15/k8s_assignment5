@@ -127,7 +127,7 @@ and postgresql. All direct connection should be prohibited.
 ``` 
   Refer to file network-policy.yml
 
-  Once policy is created, use describe command to check if the network conditions are applied.
+  Once policy is created, use describe command to check if the network conditions are implemented.
 ```
 
 7. Install metrics-server and observe the resource consumption of the workload under training namespace.
