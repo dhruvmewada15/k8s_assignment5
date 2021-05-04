@@ -146,5 +146,9 @@ and postgresql. All direct connection should be prohibited.
 
 8. Run nicolaka/netshoot Github to validate that the network policies are working fine. Observe dns
 resolution performance and check connectivity between netshoot to redis/postgresql.
+```
+    1. kubectl run tmp-shell --rm -i --tty --image nicolaka/netshoot -- /bin/bash
+    2. nslookup redis-service/postgres-service
+  It should be able to get the DNS resolution IP for the above services.
 
 
