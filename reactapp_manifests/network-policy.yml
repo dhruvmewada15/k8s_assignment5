@@ -5,7 +5,11 @@ metadata:
 spec:
   podSelector:
     matchExpressions:
-      - {key: name, operator: In, values: [postgres-pod, redis-pod]}
+            # name: redis-pod
+      - { key: name, 
+          operator: In,
+          values: [postgres-pod, redis-pod]
+        }
   policyTypes:
   - Ingress
   ingress:
