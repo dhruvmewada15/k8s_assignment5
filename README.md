@@ -127,7 +127,10 @@ and postgresql. All direct connection should be prohibited.
 ``` 
   Refer to file network-policy.yml
 
-  Once policy is created, use describe command to check if the network conditions are implemented.
+    1. Once policy is created, use describe command to check if the network conditions are implemented.
+    2. kubectl exec -it <client-pod> -- /bin/bash
+    3. telnet <postgres-pod-ip>:5432
+    4. telnet <redis-pod-ip>:6379      
 ```
 
 7. Install metrics-server and observe the resource consumption of the workload under training namespace.
@@ -150,5 +153,5 @@ resolution performance and check connectivity between netshoot to redis/postgres
     1. kubectl run tmp-shell --rm -i --tty --image nicolaka/netshoot -- /bin/bash
     2. nslookup redis-service/postgres-service
   It should be able to get the DNS resolution IP for the above services.
-
+```
 
